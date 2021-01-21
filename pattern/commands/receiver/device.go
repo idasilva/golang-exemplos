@@ -1,4 +1,4 @@
-package command
+package receiver
 
 type Device interface {
 	On()

@@ -1,19 +1,23 @@
 package main
+import (
+	"github.dxc.com/projects/golang-exemplos/pattern/commands/command"
+	"github.dxc.com/projects/golang-exemplos/pattern/commands/receiver"
+)
 
 func main (){
-	tv := &tv{}
-	onCommand := &onCommand{
-		device: tv,
+	tv := &receiver.Tv{}
+	onCommand := &command.OnCommand{
+		Device: tv,
 	}
-	offCommand := &offCommand{
-		device: tv,
+	offCommand := &command.OffCommand{
+		Device: tv,
 	}
-	onButton := &button{
-		command: onCommand,
+	onButton := &command.Button{
+		Command: onCommand,
 	}
-	onButton.press()
-	offButton := &button{
-		command: offCommand,
+	onButton.Press()
+	offButton := &command.Button{
+		Command: offCommand,
 	}
-	offButton.press()
+	offButton.Press()
 }
